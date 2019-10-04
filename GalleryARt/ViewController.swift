@@ -33,11 +33,20 @@ class ViewController: UIViewController, ARSKViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        // Get a reference to the images in the AR resource group
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "photogallery" , bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
+        }
+        
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
+        
+        // Add reference images to the ARWorldTrackingConfiguration
+        configuration.detectionImages = referenceImages
 
         // Run the view's session
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     override func viewWillDisappear(_ animated: Bool) {
