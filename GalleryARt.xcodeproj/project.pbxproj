@@ -12,9 +12,9 @@
 		8CA46B242347BF81001DE834 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B232347BF81001DE834 /* Scene.swift */; };
 		8CA46B262347BF81001DE834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B252347BF81001DE834 /* ViewController.swift */; };
 		8CA46B292347BF81001DE834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B272347BF81001DE834 /* Main.storyboard */; };
-		8CA46B2B2347BF82001DE834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B2A2347BF82001DE834 /* Assets.xcassets */; };
 		8CA46B2E2347BF82001DE834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B2C2347BF82001DE834 /* LaunchScreen.storyboard */; };
 		8CA46B382347E844001DE834 /* ImageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B372347E844001DE834 /* ImageInformationViewController.swift */; };
+		8CA46B3923484F48001DE834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B2A2347BF82001DE834 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,7 +133,7 @@
 			files = (
 				8CA46B222347BF81001DE834 /* Scene.sks in Resources */,
 				8CA46B2E2347BF82001DE834 /* LaunchScreen.storyboard in Resources */,
-				8CA46B2B2347BF82001DE834 /* Assets.xcassets in Resources */,
+				8CA46B3923484F48001DE834 /* Assets.xcassets in Resources */,
 				8CA46B292347BF81001DE834 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
