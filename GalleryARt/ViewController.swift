@@ -7,60 +7,56 @@
 //
 
 import UIKit
-import SpriteKit
 import ARKit
 
-
-struct ImageInformation {
-    let name: String
-    let description: String
-    let image: UIImage
-}
-
-class ViewController: UIViewController, ARSKViewDelegate {
+class ViewController: UIViewController {
     
-    @IBOutlet var sceneView: ARSKView!
+    // Primary SceneKit view that renders the AR session
+    @IBOutlet var sceneView: ARSCNView!
     
-    var selectedImage : ImageInformation?
+    // A serial queue for thread safety when modifyinf SceneKit's scene graph
+    let updateQueue = DispatchQueue(label: "\(Bundle.main.bundleIdentifier!).serialSCNQueue")
     
-    let images = ["inevitable" : ImageInformation(name: "Inevitable Human", description: "The Mona Lisa is a half-length portrait painting by the Italian Renaissance artist Leonardo da Vinci that has been described as 'the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world'.", image: UIImage(named: "inevitable")!)]
+    // MARK: - Lifecycle
     
+    // Called after the controller's view is loaded into memory
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and node count
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
-        
-        // Load the SKScene from 'Scene.sks'
-        if let scene = SKScene(fileNamed: "Scene") {
-            sceneView.presentScene(scene)
-        }
+        // add statistics such as FPS and timing information (for development purposes)
+        sceneView.showsStatistics = true
     
+        // Enable environment-based lighting
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.automaticallyUpdatesLighting = true
+        
+    }
+    
+    // Notifies the view controller that its view is about to be added to a view hierarchy
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Get a reference to the images in the AR resource group
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "photogallery" , bundle: nil) else {
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "ARgallery" , bundle: Bundle.main) else {
             fatalError("Missing expected asset catalog resources.")
         }
         
         // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+        let configuration = ARImageTrackingConfiguration()
         
         // Add reference images to the ARWorldTrackingConfiguration
-        configuration.detectionImages = referenceImages
+        configuration.trackingImages = referenceImages
+        configuration.maximumNumberOfTrackedImages = 1
 
         // Run the view's session
-        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
-        
+        sceneView.session.run(configuration, options: ARSession.RunOptions(arrayLiteral: [.resetTracking, .removeExistingAnchors]))
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
+    // Notifies the view controller that its about to be removed from a view hierarchy
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -68,58 +64,5 @@ class ViewController: UIViewController, ARSKViewDelegate {
         sceneView.session.pause()
     }
     
-    // MARK: - ARSKViewDelegate
     
-    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        
-        if let imageAnchor = anchor as? ARImageAnchor,
-            let referenceImageName = imageAnchor.referenceImage.name,
-            let scannedImage = self.images[referenceImageName] {
-            
-            self.selectedImage = scannedImage
-            
-            self.performSegue(withIdentifier: "ShowImageInformation", sender: self)
-            
-            return imageSeenMarker()
-        }
-        
-        return nil
-
-    }
-    
-    
-    
-    // Create and configure a node for the anchor added to the view's session.
-    private func imageSeenMarker() -> SKLabelNode {
-        let labelNode = SKLabelNode(text: "✅")
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        return labelNode;
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showImageInformation"{
-            if let imageInformationVC = segue.destination as? ImageInformationViewController,
-                let actualSelectedImage = selectedImage {
-                imageInformationVC.imageInformation = actualSelectedImage
-            }
-        }
-    }
-    
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
 }

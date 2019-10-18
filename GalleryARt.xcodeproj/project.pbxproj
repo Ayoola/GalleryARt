@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C1300DE2352A94A00F18689 /* ViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1300DD2352A94A00F18689 /* ViewController+ARSCNViewDelegate.swift */; };
+		8C1300E02352BC5E00F18689 /* DetailScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C1300DF2352BC5E00F18689 /* DetailScene.sks */; };
 		8CA46B202347BF81001DE834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B1F2347BF81001DE834 /* AppDelegate.swift */; };
-		8CA46B222347BF81001DE834 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B212347BF81001DE834 /* Scene.sks */; };
-		8CA46B242347BF81001DE834 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B232347BF81001DE834 /* Scene.swift */; };
 		8CA46B262347BF81001DE834 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B252347BF81001DE834 /* ViewController.swift */; };
 		8CA46B292347BF81001DE834 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B272347BF81001DE834 /* Main.storyboard */; };
 		8CA46B2E2347BF82001DE834 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B2C2347BF82001DE834 /* LaunchScreen.storyboard */; };
-		8CA46B382347E844001DE834 /* ImageInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA46B372347E844001DE834 /* ImageInformationViewController.swift */; };
 		8CA46B3923484F48001DE834 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CA46B2A2347BF82001DE834 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C1300DD2352A94A00F18689 /* ViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		8C1300DF2352BC5E00F18689 /* DetailScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DetailScene.sks; sourceTree = "<group>"; };
 		8CA46B1C2347BF81001DE834 /* GalleryARt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalleryARt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA46B1F2347BF81001DE834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8CA46B212347BF81001DE834 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
-		8CA46B232347BF81001DE834 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		8CA46B252347BF81001DE834 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8CA46B282347BF81001DE834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CA46B2A2347BF82001DE834 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CA46B2D2347BF82001DE834 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CA46B2F2347BF82001DE834 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CA46B372347E844001DE834 /* ImageInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C1300DC2352A83300F18689 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C1300DF2352BC5E00F18689 /* DetailScene.sks */,
+				8CA46B2A2347BF82001DE834 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		8CA46B132347BF81001DE834 = {
 			isa = PBXGroup;
 			children = (
@@ -61,14 +68,12 @@
 			isa = PBXGroup;
 			children = (
 				8CA46B1F2347BF81001DE834 /* AppDelegate.swift */,
-				8CA46B212347BF81001DE834 /* Scene.sks */,
-				8CA46B232347BF81001DE834 /* Scene.swift */,
 				8CA46B252347BF81001DE834 /* ViewController.swift */,
-				8CA46B372347E844001DE834 /* ImageInformationViewController.swift */,
-				8CA46B272347BF81001DE834 /* Main.storyboard */,
-				8CA46B2A2347BF82001DE834 /* Assets.xcassets */,
-				8CA46B2C2347BF82001DE834 /* LaunchScreen.storyboard */,
+				8C1300DD2352A94A00F18689 /* ViewController+ARSCNViewDelegate.swift */,
+				8C1300DC2352A83300F18689 /* Resources */,
 				8CA46B2F2347BF82001DE834 /* Info.plist */,
+				8CA46B2C2347BF82001DE834 /* LaunchScreen.storyboard */,
+				8CA46B272347BF81001DE834 /* Main.storyboard */,
 			);
 			path = GalleryARt;
 			sourceTree = "<group>";
@@ -131,10 +136,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CA46B222347BF81001DE834 /* Scene.sks in Resources */,
 				8CA46B2E2347BF82001DE834 /* LaunchScreen.storyboard in Resources */,
 				8CA46B3923484F48001DE834 /* Assets.xcassets in Resources */,
 				8CA46B292347BF81001DE834 /* Main.storyboard in Resources */,
+				8C1300E02352BC5E00F18689 /* DetailScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,10 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1300DE2352A94A00F18689 /* ViewController+ARSCNViewDelegate.swift in Sources */,
 				8CA46B262347BF81001DE834 /* ViewController.swift in Sources */,
-				8CA46B242347BF81001DE834 /* Scene.swift in Sources */,
 				8CA46B202347BF81001DE834 /* AppDelegate.swift in Sources */,
-				8CA46B382347E844001DE834 /* ImageInformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +299,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L78W3NKTVK;
 				INFOPLIST_FILE = GalleryARt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,6 +318,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L78W3NKTVK;
 				INFOPLIST_FILE = GalleryARt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
